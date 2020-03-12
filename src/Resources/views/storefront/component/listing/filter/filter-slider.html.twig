@@ -1,3 +1,119 @@
-{% block component_filter_slider %}
+{% set filterItemId = 'filter-' ~ name ~ '-' ~ random() %}
 
+{% if currencySymbol is not defined %}
+    {% set currencySymbol = page.header.activeCurrency.symbol %}
+{% endif %}
+
+{% if filterSliderActiveMinLabel is not defined %}
+    {% set filterSliderActiveMinLabel = 'listing.filterSliderActiveMinLabel'|trans|sw_sanitize %}
+{% endif %}
+
+{% if filterSliderActiveMaxLabel is not defined %}
+    {% set filterSliderActiveMaxLabel = 'listing.filterSliderActiveMaxLabel'|trans|sw_sanitize %}
+{% endif %}
+
+{% if filterSliderErrorMessage is not defined %}
+    {% set filterSliderErrorMessage = 'listing.filterSliderErrorMessage'|trans|sw_sanitize %}
+{% endif %}
+
+{% block component_filter_slider %}
+    <div class="filter-slider filter-panel-item{% if not sidebar %} dropdown{% endif %}"
+         data-filter-slider="true"
+         data-filter-slider-options='{
+             "name": "{{ name }}",
+             "minKey": "{{ minKey }}",
+             "maxKey": "{{ maxKey }}",
+             "currencySymbol": "{{ currencySymbol }}",
+             "snippets": {
+                "filterSliderActiveMinLabel": "{{ filterSliderActiveMinLabel }}",
+                "filterSliderActiveMaxLabel": "{{ filterSliderActiveMaxLabel }}",
+                "filterSliderErrorMessage": "{{ filterSliderErrorMessage }}"
+             }
+         }'>
+
+        {% block component_filter_slider_toggle %}
+            <button class="filter-panel-item-toggle btn{% if sidebar %} btn-block{% endif %}"
+                    aria-expanded="false"
+                    {% if sidebar %}
+                data-toggle="collapse"
+                data-target="#{{ filterItemId }}"
+            {% else %}
+                data-toggle="dropdown"
+                data-offset="0,8"
+                aria-haspopup="true"
+                    {% endif %}>
+
+                {% block component_filter_slider_display_name %}
+                    {{ displayName }}
+                {% endblock %}
+
+                {% block component_filter_slider_toggle_icon %}
+                    {% sw_icon 'arrow-medium-down' style {'pack': 'solid', 'size': 'xs', 'class': 'filter-panel-item-toggle'} %}
+                {% endblock %}
+            </button>
+        {% endblock %}
+
+        {% block component_filter_slider_dropdown %}
+            <div class="filter-slider-dropdown filter-panel-item-dropdown{% if sidebar %} collapse{% else %} dropdown-menu{% endif %}"
+                 id="{{ filterItemId }}">
+
+                {% block component_filter_slider_container %}
+                    <div class="filter-slider-container">
+
+                        {% block component_filter_slider_min %}
+                            <label class="filter-slider-min">
+
+                                {% block component_filter_slider_min_label %}
+                                    {{ 'listing.filterSliderMinLabel'|trans|sw_sanitize }}
+                                {% endblock %}
+
+                                {% block component_filter_slider_min_input %}
+                                    <input class="form-control min-input"
+                                           type="number"
+                                           name="min-price"
+                                           min="0"
+                                           max="{{ price.max }}">
+                                {% endblock %}
+
+                                {% block component_filter_slider_min_currency_symbol %}
+                                    <span class="filter-slider-currency-symbol">
+                                        {{ currencySymbol }}
+                                    </span>
+                                {% endblock %}
+                            </label>
+                        {% endblock %}
+
+                        {% block component_filter_slider_divider %}
+                            <div class="filter-slider-divider">
+                                &ndash;
+                            </div>
+                        {% endblock %}
+
+                        {% block component_filter_slider_max %}
+                            <label class="filter-slider-max">
+
+                                {% block component_filter_slider_max_label %}
+                                    {{ 'listing.filterSliderMaxLabel'|trans|sw_sanitize }}
+                                {% endblock %}
+
+                                {% block component_filter_slider_max_input %}
+                                    <input class="form-control max-input"
+                                           type="number"
+                                           name="max-price"
+                                           min="0"
+                                           max="{{ price.max }}">
+                                {% endblock %}
+
+                                {% block component_filter_slider_max_currency_symbol %}
+                                    <span class="filter-slider-currency-symbol">
+                                        {{ currencySymbol }}
+                                    </span>
+                                {% endblock %}
+                            </label>
+                        {% endblock %}
+                    </div>
+                {% endblock %}
+            </div>
+        {% endblock %}
+    </div>
 {% endblock %}
