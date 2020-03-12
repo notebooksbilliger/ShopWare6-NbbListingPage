@@ -78,6 +78,16 @@
                                 {% endblock %}
                             </label>
                         {% endblock %}
+
+                        {% block component_filter_slider_main %}
+                            <div class="clearfix">
+                                <section class="range-slider">
+                                    <span class="rangeValues"></span>
+                                    <input value="0" min="0" step="0.5" type="range">
+                                    <input value="15" min="0" step="0.5" type="range">
+                                </section>
+                            </div>
+                        {% endblock %}
                     </div>
                 {% endblock %}
             </div>
