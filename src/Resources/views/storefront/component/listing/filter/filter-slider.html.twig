@@ -17,7 +17,7 @@
 {% endif %}
 
 {% block component_filter_slider %}
-    <div class="filter-slider filter-panel-item{% if not sidebar %} dropdown{% endif %}"
+    <div class="filter-slider filter-range filter-panel-item{% if not sidebar %} dropdown{% endif %}"
          data-filter-slider="true"
          data-filter-slider-options='{
              "name": "{{ name }}",
@@ -34,14 +34,14 @@
         {% block component_filter_slider_toggle %}
             <button class="filter-panel-item-toggle btn{% if sidebar %} btn-block{% endif %}"
                     aria-expanded="false"
-                    {% if sidebar %}
+                {% if sidebar %}
                 data-toggle="collapse"
                 data-target="#{{ filterItemId }}"
             {% else %}
                 data-toggle="dropdown"
                 data-offset="0,8"
                 aria-haspopup="true"
-                    {% endif %}>
+                {% endif %}>
 
                 {% block component_filter_slider_display_name %}
                     {{ displayName }}
@@ -54,14 +54,15 @@
         {% endblock %}
 
         {% block component_filter_slider_dropdown %}
-            <div class="filter-slider-dropdown filter-panel-item-dropdown{% if sidebar %} collapse{% else %} dropdown-menu{% endif %}"
-                 id="{{ filterItemId }}">
+            <div
+                class="filter-slider-dropdown filter-range-dropdown filter-panel-item-dropdown{% if sidebar %} collapse{% else %} dropdown-menu{% endif %}"
+                id="{{ filterItemId }}">
 
                 {% block component_filter_slider_container %}
-                    <div class="filter-slider-container">
+                    <div class="filter-slider-container filter-range-container">
 
                         {% block component_filter_slider_min %}
-                            <label class="filter-slider-min">
+                            <label class="filter-slider-min filter-range-min">
 
                                 {% block component_filter_slider_min_label %}
                                     {{ 'listing.filterSliderMinLabel'|trans|sw_sanitize }}
@@ -76,7 +77,7 @@
                                 {% endblock %}
 
                                 {% block component_filter_slider_min_currency_symbol %}
-                                    <span class="filter-slider-currency-symbol">
+                                    <span class="filter-slider-currency-symbol filter-range-currency-symbol">
                                         {{ currencySymbol }}
                                     </span>
                                 {% endblock %}
@@ -84,13 +85,13 @@
                         {% endblock %}
 
                         {% block component_filter_slider_divider %}
-                            <div class="filter-slider-divider">
+                            <div class="filter-slider-divider filter-range-divider">
                                 &ndash;
                             </div>
                         {% endblock %}
 
                         {% block component_filter_slider_max %}
-                            <label class="filter-slider-max">
+                            <label class="filter-slider-max filter-range-max">
 
                                 {% block component_filter_slider_max_label %}
                                     {{ 'listing.filterSliderMaxLabel'|trans|sw_sanitize }}
@@ -105,7 +106,7 @@
                                 {% endblock %}
 
                                 {% block component_filter_slider_max_currency_symbol %}
-                                    <span class="filter-slider-currency-symbol">
+                                    <span class="filter-slider-currency-symbol filter-range-currency-symbol">
                                         {{ currencySymbol }}
                                     </span>
                                 {% endblock %}

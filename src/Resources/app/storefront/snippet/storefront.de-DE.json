@@ -1,7 +1,9 @@
 {
-  "listing": {
-    "filterSliderActiveMinLabel": "Preis ab",
-    "filterSliderActiveMaxLabel": "Preis bis",
-    "filterSliderErrorMessage": "Der Mindestpreis sollte nicht höher sein als der Höchstpreis."
-  }
+    "listing": {
+        "filterRangeMinLabel": "Minimal",
+        "filterRangeMaxLabel": "Maximal",
+        "filterRangeActiveMinLabel": "Preis ab",
+        "filterRangeActiveMaxLabel": "Preis bis",
+        "filterRangeErrorMessage": "Der Mindestpreis sollte nicht höher sein als der Höchstpreis."
+    }
 }

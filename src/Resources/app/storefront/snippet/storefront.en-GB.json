@@ -1,7 +1,9 @@
 {
-  "listing": {
-    "filterSliderActiveMinLabel": "Price from",
-    "filterSliderActiveMaxLabel": "Price to",
-    "filterSliderErrorMessage": "The minimum price should not be higher than the maximum price."
-  }
+    "listing": {
+        "filterSliderMinLabel": "Minimum",
+        "filterSliderMaxLabel": "Maximum",
+        "filterSliderActiveMinLabel": "Price from",
+        "filterSliderActiveMaxLabel": "Price to",
+        "filterSliderErrorMessage": "The minimum price should not be higher than the maximum price."
+    }
 }
