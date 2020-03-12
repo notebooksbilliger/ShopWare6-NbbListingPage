@@ -67,27 +67,7 @@
                                 {% block component_filter_slider_min_label %}
                                     {{ 'listing.filterSliderMinLabel'|trans|sw_sanitize }}
                                 {% endblock %}
-
-                                {% block component_filter_slider_min_input %}
-                                    <input class="form-control min-input"
-                                           type="number"
-                                           name="min-price"
-                                           min="0"
-                                           max="{{ price.max }}">
-                                {% endblock %}
-
-                                {% block component_filter_slider_min_currency_symbol %}
-                                    <span class="filter-slider-currency-symbol filter-range-currency-symbol">
-                                        {{ currencySymbol }}
-                                    </span>
-                                {% endblock %}
                             </label>
-                        {% endblock %}
-
-                        {% block component_filter_slider_divider %}
-                            <div class="filter-slider-divider filter-range-divider">
-                                &ndash;
-                            </div>
                         {% endblock %}
 
                         {% block component_filter_slider_max %}
@@ -95,20 +75,6 @@
 
                                 {% block component_filter_slider_max_label %}
                                     {{ 'listing.filterSliderMaxLabel'|trans|sw_sanitize }}
-                                {% endblock %}
-
-                                {% block component_filter_slider_max_input %}
-                                    <input class="form-control max-input"
-                                           type="number"
-                                           name="max-price"
-                                           min="0"
-                                           max="{{ price.max }}">
-                                {% endblock %}
-
-                                {% block component_filter_slider_max_currency_symbol %}
-                                    <span class="filter-slider-currency-symbol filter-range-currency-symbol">
-                                        {{ currencySymbol }}
-                                    </span>
                                 {% endblock %}
                             </label>
                         {% endblock %}
