@@ -1,0 +1,18 @@
+{
+    "name": "nbb/listing-page",
+    "description": "Listing page",
+    "type": "shopware-platform-plugin",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "NbbListingPage\\": "src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "NbbListingPage\\NbbListingPage",
+        "label": {
+            "de-DE": "Erweiterungen Listingseite",
+            "en-GB": "Listing page extensions"
+        }
+    }
+}
