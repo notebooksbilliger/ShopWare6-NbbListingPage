@@ -6,4 +6,5 @@ use Shopware\Core\Framework\Plugin;
 
 class NbbListingPage extends Plugin
 {
+    // can I?
 }
