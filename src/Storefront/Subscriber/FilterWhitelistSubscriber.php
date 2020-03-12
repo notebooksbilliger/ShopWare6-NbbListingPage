@@ -13,6 +13,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class FilterWhitelistSubscriber implements EventSubscriberInterface
 {
+    public const CUSTOM_FILTERS_GROUP_IDS = 'custom_filters_group_ids';
+
     /**
      * @var EntityRepositoryInterface
      */
@@ -45,12 +47,12 @@ class FilterWhitelistSubscriber implements EventSubscriberInterface
 
         /** @var CategoryEntity $category */
         $category = $result->getEntities()->first();
-        if (isset($category->getCustomFields()['custom_filters_group_ids'])) {
+        if (isset($category->getCustomFields()[self::CUSTOM_FILTERS_GROUP_IDS])) {
             $criteria = $event->getCriteria();
             $criteria->addFilter(
                 new EqualsAnyFilter(
                     'product.properties.group.id',
-                    $category->getCustomFields()['custom_filters_group_ids']
+                    $category->getCustomFields()[self::CUSTOM_FILTERS_GROUP_IDS]
                 )
             );
         }
