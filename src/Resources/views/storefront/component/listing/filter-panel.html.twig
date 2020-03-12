@@ -1,0 +1,15 @@
+{% sw_extends "@Storefront/storefront/component/listing/filter-panel.html.twig" %}
+{% block component_filter_panel_item_price %}
+    {% set price = listing.aggregations.get('price') %}
+
+    {% if price.min > 0 and price.max > 0 %}
+        {% sw_include '@Storefront/storefront/component/listing/filter/filter-slider.html.twig' with {
+            price: price,
+            sidebar: sidebar,
+            name: 'price',
+            minKey: 'min-price',
+            maxKey: 'max-price',
+            displayName: 'listing.filterPriceDisplayName'|trans|sw_sanitize,
+        } %}
+    {% endif %}
+{% endblock %}
