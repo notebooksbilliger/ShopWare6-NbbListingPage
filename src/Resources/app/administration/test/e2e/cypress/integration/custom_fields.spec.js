@@ -1,5 +1,7 @@
-describe('Test: Admin config', () => {
+describe('Filter config panel', () => {
     beforeEach(() => {
+        cy.activateShopwareTheme();
+
         cy.loginViaApi()
             .then(() => {
                 cy.visit('/admin#/sw/category/index');

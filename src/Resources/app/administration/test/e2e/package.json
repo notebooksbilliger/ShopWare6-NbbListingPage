@@ -10,6 +10,6 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@shopware-ag/e2e-testsuite-platform": "github:shopware/e2e-testsuite-platform"
+        "@shopware-ag/e2e-testsuite-platform": "^1.1.9"
     }
 }
