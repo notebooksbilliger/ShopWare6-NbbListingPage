@@ -1,0 +1,15 @@
+{
+    "name": "nbb-listing-e2e",
+    "version": "1.0.0",
+    "description": "E2E testing for listing plugin",
+    "main": "index.js",
+    "scripts": {
+        "open": "node_modules/.bin/cypress open"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@shopware-ag/e2e-testsuite-platform": "github:shopware/e2e-testsuite-platform"
+    }
+}
