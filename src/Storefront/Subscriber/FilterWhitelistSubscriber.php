@@ -42,7 +42,11 @@ class FilterWhitelistSubscriber implements EventSubscriberInterface
 
     public function whitelistFilters(ProductListingCriteriaEvent $event)
     {
-        $categoryId = $event->getRequest()->get('navigationId');
+        $categoryId = $event->getRequest()->get(
+            'navigationId',
+            $event->getSalesChannelContext()->getSalesChannel()->getNavigationCategoryId()
+        );
+        
         $result = $this->categoryRepository->search(new Criteria([$categoryId]), $event->getContext());
 
         /** @var CategoryEntity $category */
