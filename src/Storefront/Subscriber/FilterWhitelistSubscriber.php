@@ -31,7 +31,7 @@ class FilterWhitelistSubscriber implements EventSubscriberInterface
     /**
      * @inheritDoc
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             ProductListingCriteriaEvent::class => [
@@ -40,7 +40,7 @@ class FilterWhitelistSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function whitelistFilters(ProductListingCriteriaEvent $event)
+    public function whitelistFilters(ProductListingCriteriaEvent $event): void
     {
         $categoryId = $event->getRequest()->get(
             'navigationId',
